@@ -1,34 +1,60 @@
-
-
-import javax.swing.*;
-import java.awt.*;
-
-public class FacebookStaticPage {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Facebook Static Page");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        
-        JLabel header = new JLabel("Welcome to Facebook", SwingConstants.CENTER);
-        header.setFont(new Font("Arial", Font.BOLD, 24));
-        panel.add(header, BorderLayout.NORTH);
-        
-        JTextArea content = new JTextArea("This is a static page for Facebook. \n\n"
-                + "Here you can find various features like:\n"
-                + "- News Feed\n"
-                + "- Messages\n"
-                + "- Notifications\n"
-                + "- Profile\n");
-        content.setEditable(false);
-        panel.add(content, BorderLayout.CENTER);
-        
-        JButton likeButton = new JButton("Like");
-        panel.add(likeButton, BorderLayout.SOUTH);
-        
-        frame.add(panel);
-        frame.setVisible(true);
-    }
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.facebook</groupId>
+    <artifactId>facebook-static-page</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+    
+    <name>Facebook Static Page</name>
+    <description>A simple static Facebook page application</description>
+    
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    
+    <dependencies>
+        <!-- No external dependencies needed for this simple Swing application -->
+    </dependencies>
+    
+    <build>
+        <finalName>facebook-static-page</finalName>
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+            
+            <!-- WAR plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            
+            <!-- Surefire plugin for running tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M9</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
